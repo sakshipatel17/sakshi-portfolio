@@ -129,7 +129,7 @@ const Hero = () => {
               {/* Profile image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10">
                 <img
-                  src={profileImage}
+                  src="/profile.jpg"
                   alt="Sakshi Patel"
                   className="w-full h-full object-cover"
                   onError={(e) => {
