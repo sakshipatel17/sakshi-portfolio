@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTimes, FaBars } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTimes, FaBars, FaDownload } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,6 +84,15 @@ const Navbar = () => {
             >
               <FaLinkedin size={20} />
             </motion.a>
+            <motion.a
+              href="/Sakshi_Patel_CV.docx"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 hover:text-white hover:border-primary transition-colors"
+              whileHover={{ scale: 1.02 }}
+            >
+              <FaDownload size={16} /> Resume
+            </motion.a>
           </div>
 
           {/* Mobile menu button */}
@@ -116,7 +125,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <div className="flex space-x-4 px-3 py-2">
+              <div className="flex flex-col gap-3 px-3 py-2">
                 <a
                   href="https://github.com/sakshipatel17"
                   target="_blank"
@@ -132,6 +141,14 @@ const Navbar = () => {
                   className="text-gray-400 hover:text-white"
                 >
                   <FaLinkedin size={20} />
+                </a>
+                <a
+                  href="/Sakshi_Patel_CV.docx"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 hover:text-white hover:border-primary transition-colors"
+                >
+                  <FaDownload size={16} /> Resume
                 </a>
               </div>
             </div>

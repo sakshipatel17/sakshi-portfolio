@@ -12,9 +12,9 @@ export default function CTA() {
           Helping startups and businesses build modern React + AI products. Available for senior roles, freelance engagements, and product collaborations.
         </motion.p>
 
-        <div className="flex items-center justify-center gap-4">
-          <a href="#projects" className="bg-accent text-dark px-6 py-3 rounded-full font-semibold">View My Work</a>
-          <a href="mailto:sakshipatel07173@gmail.com" className="border border-white/10 px-6 py-3 rounded-full">Get In Touch</a>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <a href="#projects" className="premium-button inline-flex items-center gap-2 px-6 py-3">View My Work</a>
+          <a href="mailto:sakshipatel07173@gmail.com" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-gray-200 hover:border-primary hover:text-white transition-colors">Get In Touch</a>
         </div>
       </div>
     </section>

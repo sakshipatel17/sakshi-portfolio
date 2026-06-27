@@ -13,8 +13,9 @@ const SectionTitle = ({ title, subtitle }) => {
       <h2 className="text-4xl md:text-5xl font-bold mb-4">
         <span className="gradient-text">{title}</span>
       </h2>
+      <div className="mx-auto mb-6 h-1 w-24 rounded-full bg-gradient-to-r from-primary to-secondary" />
       {subtitle && (
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
           {subtitle}
         </p>
       )}
