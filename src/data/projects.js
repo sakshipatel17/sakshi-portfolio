@@ -1,5 +1,27 @@
 export const projects = [
   {
+    id: 101,
+    title: "Heirloom Culinary – Luxury Food Consultancy Website",
+    description: "Designed and developed a premium food consultancy website featuring a luxury UI/UX, elegant branding, smooth animations, responsive layouts, and modern React architecture.",
+    solution: "Designed and developed a premium food consultancy website featuring a luxury UI/UX, elegant branding, smooth animations, responsive layouts, and modern React architecture.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/sakshipatel17/culinary-brand-builder",
+    live: "https://culinary-brand-builder.vercel.app/",
+    category: "featured",
+    featured: true,
+    image: "/culinary-placeholder.svg",
+    features: [
+      "Luxury responsive UI/UX",
+      "Premium branding",
+      "Smooth animations",
+      "Portfolio & case studies",
+      "Contact form",
+      "Mobile-first design",
+      "SEO-friendly structure"
+    ],
+    deploymentStatus: "Live"
+  },
+  {
     id: 1,
     title: "Electro Shop",
     description: "Full-featured electronics e-commerce site with cart, product listings, and checkout functionality. Built a clean, responsive UI using React and managed state efficiently with user authentication and product management.",
