@@ -47,5 +47,26 @@ export const projects = [
     github: "https://github.com/sakshipatel17",
     live: "#",
     category: "ai"
+  },
+  {
+    id: 4,
+    title: "Food Ordering Web Application (MEAN Stack)",
+    description: "A full-stack Food Ordering Web Application built using the MEAN stack (MongoDB, Express.js, Angular, Node.js). The application allows users to browse food items, search products, manage a shopping cart, authenticate securely, place orders, and provides a responsive user experience with a modern UI.",
+    tech: ["MongoDB", "Express.js", "Angular", "Node.js", "TypeScript", "HTML", "CSS", "Bootstrap", "JWT Authentication", "REST API"],
+    github: "https://github.com/sakshipatel17/food-app",
+    live: "https://food-app-ufkz.vercel.app/home",
+    category: "fullstack",
+    features: [
+      "User Authentication (Login/Register)",
+      "Browse Food Menu",
+      "Search Functionality",
+      "Shopping Cart",
+      "Place Orders",
+      "Responsive Design",
+      "REST API Integration",
+      "JWT Authentication",
+      "MongoDB Database",
+      "Modern Angular Frontend"
+    ]
   }
 ];
