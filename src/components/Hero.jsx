@@ -14,10 +14,52 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+      {/* Animated gradient blobs - disabled on mobile for performance */}
+      <motion.div
+        className="hidden md:block absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none"
+        animate={{
+          x: [0, 100, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+      <motion.div
+        className="hidden md:block absolute bottom-20 right-10 w-80 h-80 bg-secondary/15 rounded-full blur-3xl pointer-events-none"
+        animate={{
+          x: [0, -80, 0],
+          y: [0, 60, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 1,
+        }}
+      />
+      <motion.div
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 2,
+        }}
+      />
+      
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 10% 10%, rgba(124,58,237,0.16), transparent 15%), radial-gradient(circle at 90% 90%, rgba(59,130,246,0.1), transparent 20%)'
+          background: 'radial-gradient(circle at 10% 10%, rgba(139,92,246,0.16), transparent 15%), radial-gradient(circle at 90% 90%, rgba(34,211,238,0.1), transparent 20%)'
         }}
         animate={{ opacity: [0.6, 0.9, 0.7] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
@@ -31,29 +73,23 @@ const Hero = () => {
               Available for senior roles & collaborations
             </motion.div>
 
-            <div className="space-y-4">
-              <motion.p className="text-sm uppercase tracking-[0.35em] text-gray-400 font-semibold" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} viewport={{ once: true }}>
-                Hello, I'm
-              </motion.p>
-
-              <motion.h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight text-white max-w-3xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
-                Sakshi Patel
+            <div className="space-y-6">
+              <motion.h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight text-white max-w-3xl font-heading leading-tight" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}>
+                I Build AI-Powered Digital Products
               </motion.h1>
 
-              <RoleAnimator />
-
-              <motion.p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} viewport={{ once: true }}>
-                I design premium AI-powered digital products with clean frontends, robust backend systems, and performant user experiences.
+              <motion.p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }}>
+                Full-stack engineer specializing in React, Next.js, and AI integration. I help startups and businesses build scalable, intelligent web applications.
               </motion.p>
             </div>
 
-            <motion.div className="flex flex-wrap gap-4" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }} viewport={{ once: true }}>
-              <a href="#projects" className="premium-button inline-flex items-center gap-2 px-6 py-3 shadow-lg shadow-primary/20" aria-label="View projects">
-                View Projects
+            <motion.div className="flex flex-wrap gap-4" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}>
+              <a href="#projects" className="premium-button inline-flex items-center gap-2 px-8 py-4 shadow-lg shadow-primary/20 text-lg" aria-label="View my work">
+                View My Work
                 <FaArrowRight />
               </a>
-              <a href="/Sakshi_Patel_Resume.pdf" target="_blank" rel="noreferrer" className="border border-white/10 text-white/90 px-6 py-3 rounded-full inline-flex items-center gap-2 transition hover:border-primary hover:text-white" aria-label="Download resume">
-                <FaDownload /> Resume
+              <a href="#contact" className="border border-white/10 text-white/90 px-8 py-4 rounded-full inline-flex items-center gap-2 transition hover:border-primary hover:text-white hover:bg-white/5 text-lg" aria-label="Let's talk">
+                Let's Talk
               </a>
             </motion.div>
 
@@ -74,8 +110,8 @@ const Hero = () => {
           </motion.div>
 
           <motion.div className="relative flex justify-center" initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9 }}>
-            <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-full overflow-hidden border border-white/10 shadow-[0_45px_90px_rgba(0,0,0,0.35)] bg-slate-950/80">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.24),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.16),transparent_35%)]" />
+            <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-full overflow-hidden border border-white/10 shadow-[0_45px_90px_rgba(0,0,0,0.35)] bg-[#0A0A0F]/80">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.24),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.16),transparent_35%)]" />
               <img src="/sakshi.jpeg" alt="Sakshi Patel" loading="lazy" decoding="async" className="relative w-full h-full object-cover" />
             </div>
 

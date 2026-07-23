@@ -11,6 +11,7 @@ import Workflow from './components/Workflow';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -30,6 +31,7 @@ function App() {
       <Experience />
       <Education />
       <Certifications />
+      <SocialProof />
       <CTA />
       <Contact />
       <Footer />

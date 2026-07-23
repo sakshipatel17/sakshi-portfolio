@@ -16,11 +16,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'Work', href: '#projects' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -28,7 +26,7 @@ const Navbar = () => {
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10' 
+          ? 'bg-[#0A0A0F]/80 backdrop-blur-lg border-b border-white/10' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}

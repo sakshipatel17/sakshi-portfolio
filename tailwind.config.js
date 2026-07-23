@@ -7,18 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0d0d12',
-        secondaryBackground: '#111827',
-        primary: '#7c3aed',
-        secondary: '#a78bfa',
-        accent: '#7c3aed',
-        'text-primary': '#ffffff',
-        muted: '#a1a1aa',
+        background: '#0A0A0F',
+        secondaryBackground: '#14141C',
+        tertiaryBackground: '#16161F',
+        primary: '#8B5CF6',
+        secondary: '#22D3EE',
+        accent: '#8B5CF6',
+        'text-primary': '#F5F5F7',
+        muted: '#A1A1AA',
         border: 'rgba(255,255,255,0.08)',
-        card: 'rgba(255,255,255,0.03)'
+        card: 'rgba(20,20,28,0.72)'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Space Grotesk', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeInUp 0.8s ease-out',
@@ -36,7 +38,7 @@ export default {
         },
         glow: {
           '0%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' },
-          '100%': { boxShadow: '0 0 30px rgba(139, 92, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.6)' },
+          '100%': { boxShadow: '0 0 30px rgba(139, 92, 246, 0.8), 0 0 40px rgba(34, 211, 238, 0.6)' },
         },
       },
     },

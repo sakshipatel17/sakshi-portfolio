@@ -1,9 +1,28 @@
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 export default function ProjectCard({ project }) {
   const [open, setOpen] = useState(false)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const mouseX = useSpring(x, { stiffness: 500, damping: 100 })
+  const mouseY = useSpring(y, { stiffness: 500, damping: 100 })
+
+  function onMouseMove({ currentTarget, clientX, clientY }) {
+    const { left, top, width, height } = currentTarget.getBoundingClientRect()
+    x.set(clientX - left - width / 2)
+    y.set(clientY - top - height / 2)
+  }
+
+  function onMouseLeave() {
+    x.set(0)
+    y.set(0)
+  }
+
+  const rotateX = useTransform(mouseY, [-200, 200], [10, -10])
+  const rotateY = useTransform(mouseX, [-200, 200], [-10, 10])
 
   const tagline = project.tagline || (project.description ? project.description.split('. ')[0] : '')
   const techList = (project.stack || project.tech || []).map((t) => t.toString())
@@ -12,7 +31,14 @@ export default function ProjectCard({ project }) {
   return (
     <motion.div
       layout
-      whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
+      style={{
+        rotateX: window.innerWidth >= 768 ? rotateX : 0,
+        rotateY: window.innerWidth >= 768 ? rotateY : 0,
+        transformStyle: window.innerWidth >= 768 ? 'preserve-3d' : 'flat'
+      }}
+      onMouseMove={window.innerWidth >= 768 ? onMouseMove : undefined}
+      onMouseLeave={window.innerWidth >= 768 ? onMouseLeave : undefined}
+      whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.3 } }}
       className="group glass-card overflow-hidden p-0 flex flex-col h-full border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
     >
       {project.image && (
@@ -86,12 +112,40 @@ export default function ProjectCard({ project }) {
 
         <AnimatePresence>
           {open && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mt-4 text-sm text-gray-300 border-t border-white/10 pt-4">
-              {project.problem && <div className="mb-2"><strong>Problem:</strong> {project.problem}</div>}
-              {project.architecture && <div className="mb-2"><strong>Architecture:</strong> {project.architecture}</div>}
-              {project.impact && <div className="mb-2"><strong>Impact:</strong> {project.impact}</div>}
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mt-4 text-sm text-gray-300 border-t border-white/10 pt-4 space-y-3">
+              {project.problem && (
+                <div>
+                  <strong className="text-primary">Problem:</strong>
+                  <p className="mt-1 text-gray-400">{project.problem}</p>
+                </div>
+              )}
+              {project.solution && (
+                <div>
+                  <strong className="text-secondary">Approach:</strong>
+                  <p className="mt-1 text-gray-400">{project.solution}</p>
+                </div>
+              )}
+              {project.architecture && (
+                <div>
+                  <strong className="text-accent">Architecture:</strong>
+                  <p className="mt-1 text-gray-400">{project.architecture}</p>
+                </div>
+              )}
+              {project.impact && (
+                <div>
+                  <strong className="text-green-400">Result/Impact:</strong>
+                  <p className="mt-1 text-gray-400">{project.impact}</p>
+                </div>
+              )}
               {project.features && (
-                <div className="mb-2"><strong>Features:</strong> <ul className="list-disc ml-5">{project.features.map((f, i) => <li key={i}>{f}</li>)}</ul></div>
+                <div>
+                  <strong className="text-white">Key Features:</strong>
+                  <ul className="list-disc ml-5 mt-1 space-y-1">
+                    {project.features.map((f, i) => (
+                      <li key={i} className="text-gray-400">{f}</li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </motion.div>
           )}
