@@ -52,7 +52,7 @@ const Hero = () => {
                 View Projects
                 <FaArrowRight />
               </a>
-              <a href="/Sakshi_Patel_CV.docx" target="_blank" rel="noreferrer" className="border border-white/10 text-white/90 px-6 py-3 rounded-full inline-flex items-center gap-2 transition hover:border-primary hover:text-white" aria-label="Download resume">
+              <a href="/Sakshi_Patel_Resume.pdf" target="_blank" rel="noreferrer" className="border border-white/10 text-white/90 px-6 py-3 rounded-full inline-flex items-center gap-2 transition hover:border-primary hover:text-white" aria-label="Download resume">
                 <FaDownload /> Resume
               </a>
             </motion.div>
